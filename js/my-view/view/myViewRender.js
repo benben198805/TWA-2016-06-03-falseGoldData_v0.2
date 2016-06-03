@@ -1,4 +1,4 @@
-var render = {
+var myViewRender = {
     show: function (doms) {
         doms.forEach(function(element) {
             $("button[role='"+element+"']").hide();

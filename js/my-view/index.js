@@ -1,4 +1,4 @@
-document.write("<script language='JavaScript' src='js/my-view/view/render.js'></script>");
+document.write("<script language='JavaScript' src='js/my-view/view/myViewRender.js'></script>");
 
 $.fn.my_view = function (doms, labels) {
     var isView = true;
@@ -15,13 +15,13 @@ function my_view_hander(doms, labels, isView, e) {
 
 function change_view_state(isView, doms) {
     if (isView) {
-        render.show(doms);
+        myViewRender.show(doms);
     }
     else {
-        render.edit(doms);
+        myViewRender.edit(doms);
     }
 };
 
 function change_view_label(label, e) {
-    render.changeLabel(label, e);
+    myViewRender.changeLabel(label, e);
 };
