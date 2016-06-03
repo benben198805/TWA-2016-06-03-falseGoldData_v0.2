@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <link href="js/jquery-ui/jquery-ui.css"></link>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+    <script src="js/jquery-ui/jquery-ui.js"></script>
+    <style>
+        .redBorder {
+            border: red 1px solid;
+        }
+        input{
+            margin: 5px;
+        }
+        
+    </style>
+</head>
+
+<body style="text-align:center;">
+    <div role="viewBtn">
+        <button role="btn-show-edit">show</button>
+    </div>
+    <div role="box">
+    </div>
+    <div style="margin-top:10px;">
+        <button role="opener" id="opener">+</button>
+    </div>
+    <div style="margin-top:10px;">
+        <div role="dialog" id="dialog" title="Basic dialog">
+            <div><input name="radio" value="1" checked role="for-datepicker" type="radio" />datepicker</div>
+            <div><input name="radio" value="2" role="for-textbox" type="radio" />textbox</div>
+            <input type="button" id="dialog-submit" value="submit">
+            <input type="button" id="dialog-close" value="cancle">
+        </div>
+    </div>
+    <script src="js/my-datepicker/index.js"></script>
+    <script src="js/my-view/index.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
