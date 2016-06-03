@@ -9,7 +9,7 @@ var myViewRender = {
             $("button[role='"+element+"']").show();
         });
     },
-    changeLabel:function(label, e){
-        $(e).html(label);
+    changeLabel:function(label, element){
+        element.html(label);
     }
 }

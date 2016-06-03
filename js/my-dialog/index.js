@@ -44,11 +44,10 @@ function init_my_dialog(dialog, target) {
 }
 
 function add_submit_event(dialog, target, boxIndex) {
-    var boxIndex = $("#dialog-submit").bind("click", function () {
-        return my_dialog_submit_handler(dialog, target, boxIndex);
+    $("#dialog-submit").bind("click", function () {
+        boxIndex= my_dialog_submit_handler(dialog, target, boxIndex);
     });
     return boxIndex;
-
 }
 
 function my_dialog_submit_handler(dialog, target, boxIndex) {
