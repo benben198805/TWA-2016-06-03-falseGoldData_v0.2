@@ -1,16 +1,26 @@
 var render = {
-    addTextBox: function (target) {
-        target.append("<div><input type='text'/><button role='cal-del'>-</button></div>");
+    readTemplate:function(){
+        
     },
-    addDatePicker: function (target, boxIndex) {
-        var html = "<input type='text' role='cal' /><input type='button' role='cal-btn' value='submit' /><button role='cal-del'>-</button>";
-        html = "<div role='box" + boxIndex + "'>" + html + "</div>";
-        target.append(html);
+    renderHtml: function (targetDom, htmlData) {
+        var previewBoxTemplate = _.template("<div role='box'><% _.forEach(inputs,function(input){%><div><%- input%>:<input style='width: 150px;' type='<%- input%>' /></div><%})%></div>");
+        var editBoxTemplate = _.template("<div role='box'><% _.forEach(inputs,function(input){%><div><%- input%>:<input style='width: 150px;' type='<%- input%>' /><button data-role='input-del'>-</button></div><%})%></div>");
 
-        var date_picker = $("div[role='box" + boxIndex + "'] input[role='cal']").my_datepicker();
+        var viewBtnTemplate = _.template("<div role='viewBtn'><button role='btn-show-edit'><%- label%></button></div>");
+        var boxTemplate = _.template("<div role='box'><%- html%></div>");
+        var openerTemplate = _.template("<div style='margin-top:10px;'><button role='dialog-opener' id='opener'>+</button></div>");
 
-        $("div[role='box" + boxIndex + "'] input[role='cal-btn']").bind("click", function () {
-            date_picker.validate_handler(date_picker.input);
-        });
+        var html = "";
+        if (htmlData.isEdit) {
+            var boxHtml = editBoxTemplate(htmlData);
+            var viewBtnHtml = viewBtnTemplate({ label: htmlData.labels[htmlData.isEdit ? 0 : 1] });
+            var openerHtml = openerTemplate("");
+            html = viewBtnHtml + boxHtml + openerHtml;
+        } else {
+            var viewBtnHtml = viewBtnTemplate({ label: htmlData.labels[htmlData.isEdit ? 0 : 1] });
+            var boxHtml = previewBoxTemplate(htmlData);
+            html = boxHtml;
+        }
+        targetDom.html(html);
     }
 }
