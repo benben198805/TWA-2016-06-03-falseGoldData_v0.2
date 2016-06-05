@@ -10,9 +10,10 @@
             border: red 1px solid;
         }
         
-        input {
+        div,input {
             margin: 5px;
         }
+        
     </style>
 </head>
 
@@ -23,11 +24,11 @@
         </div>
         <div role="box">
         </div>
-        <div style="margin-top:10px;">
+        <div>
             <button role="dialog-opener" id="opener">+</button>
         </div>
     </div>
-    <div style="margin-top:10px;" role="dialog-box" id="dialog" title="Basic dialog">
+    <div role="dialog-box" id="dialog" title="Basic dialog">
         <div><input name="radio" value="1" checked role="for-datepicker" type="radio" />datepicker</div>
         <div><input name="radio" value="2" role="for-textbox" type="radio" />textbox</div>
         <input type="button" id="dialog-submit" value="submit">

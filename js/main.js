@@ -7,7 +7,4 @@
     $("button[role='btn-show-edit']").bind("click", function () {
         my_dialog.change_view_state(my_dialog.htmlData);
     });
-
-    // $("button[role='btn-show-edit']").my_view(["input-del", "dialog-opener"], ["edit", "preview"]);
-
 })();

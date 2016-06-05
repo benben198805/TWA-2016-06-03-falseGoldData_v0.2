@@ -1,7 +1,4 @@
 var render = {
-    readTemplate:function(){
-        
-    },
     renderHtml: function (targetDom, htmlData) {
         var previewBoxTemplate = _.template("<div role='box'><% _.forEach(inputs,function(input){%><div><%- input%>:<input style='width: 150px;' type='<%- input%>' /></div><%})%></div>");
         var editBoxTemplate = _.template("<div role='box'><% _.forEach(inputs,function(input){%><div><%- input%>:<input style='width: 150px;' type='<%- input%>' /><button data-role='input-del'>-</button></div><%})%></div>");

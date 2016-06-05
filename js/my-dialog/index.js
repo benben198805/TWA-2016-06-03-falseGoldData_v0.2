@@ -65,6 +65,7 @@ function my_dialog_submit_handler(dialog, target, htmlData) {
         htmlData.inputs.push("text");
     }
     dialog.dialog("close");
+    reload_html(htmlData);
     return htmlData;
 }
 
@@ -78,5 +79,11 @@ function my_dialog_del_handler() {
 
 function change_view_state(htmlData) {
     htmlData.isEdit = !htmlData.isEdit;
+    reload_html(htmlData);
+}
+
+function reload_html(htmlData) {
     render.renderHtml($("div[role='panel']"), htmlData);
+
+
 }
