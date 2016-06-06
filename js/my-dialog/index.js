@@ -14,9 +14,6 @@ document.write("<script language='JavaScript' src='js/my-dialog/view/render.js'>
         htmlData = reload_html(parentDiv, htmlData);
     };
 
-    function show_dialog_handler(dialog) {
-        dialog.dialog("open");
-    }
 
     function init_jqeruyUI_dialog(dialog) {
         dialog.dialog({
@@ -61,9 +58,8 @@ document.write("<script language='JavaScript' src='js/my-dialog/view/render.js'>
             reload_html(parentDiv, htmlData);
         });
 
-
         $("button[role='dialog-opener']").bind("click", function () {
-            show_dialog_handler(dialog);
+            dialog.dialog("open");
         });
 
         $("input[role='dialog-close']").bind("click", function () {
@@ -72,7 +68,6 @@ document.write("<script language='JavaScript' src='js/my-dialog/view/render.js'>
 
         $("input[role='dialog-submit']").bind("click", function () {
             htmlData = my_dialog_submit_handler(parentDiv, dialog, htmlData);
-            render.renderHtml(parentDiv, htmlData);
         });
 
         parentDiv.delegate("button[role='input-del']", "click", function () {
