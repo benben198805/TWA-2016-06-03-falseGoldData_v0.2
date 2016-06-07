@@ -1,3 +1,3 @@
 (function () {
-    $("div[role='panel']").my_dialog();
-})();
+    reload_html($(".list-box"), $("#editListBox"));
+})();   
