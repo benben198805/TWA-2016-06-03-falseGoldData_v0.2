@@ -1,7 +1,7 @@
 var render = {
     loadTemplate: function () {
         var previewBoxTemplate = _.template("<div role='box'><% _.forEach(inputs,function(input){%><div><%- input%>:<input style='width: 150px;' type='<%- input%>' /></div><%})%></div>");
-        var editBoxTemplate = _.template("<div role='box'><% _.forEach(inputs,function(input){%><div><%- input%>:<input style='width: 150px;' type='<%- input%>' /><button role='input-del'>-</button></div><%})%></div>");
+        var editBoxTemplate = _.template("<div role='box'><% inputs.forEach (function(input,index){%><div><%- input%>:<input style='width: 150px;' type='<%- input%>' /><button role='input-del' data-index='<%- index%>'>-</button></div><%})%></div>");
 
         var viewBtnTemplate = _.template("<div role='viewBtn'><button role='btn-show-edit'><%- label%></button></div>");
         var boxTemplate = _.template("<div role='box'><%- html%></div>");

@@ -70,7 +70,12 @@ document.write("<script language='JavaScript' src='js/my-dialog/view/render.js'>
             htmlData = my_dialog_submit_handler(parentDiv, dialog, htmlData);
         });
 
-        parentDiv.delegate("button[role='input-del']", "click", function () {
+        $("button[role='input-del']").bind("click", function () {
+            var index = $(this).attr("data-index");
+            var items = htmlData.inputs;
+            _.remove(items, function (item, i) {
+                return i == index;
+            });
             $(this).parent().remove();
         });
     }
