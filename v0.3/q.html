@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+<script src="build/JSXTransformer.js"></script>
+
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+</head>
+<body>
+  <div id="component"></div>
+  <script type="text/jsx">
+  /** @jsx React.DOM */
+  
+  var DialogContent = React.createClass({
+    render: function(){
+      return(
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <input ref="inputText" />
+          <input type="submit" />
+          <button onClick = {this.props.closeDialog}>Cancel</button>
+        </form>
+      </div>
+      )
+    }
+  });
+  
+  
+  var DialogExample = React.createClass({
+  
+    openDialog: function(e){
+      e.preventDefault();
+      
+      var $dialog = $('<div>').dialog({
+        title: 'Example Dialog Title',
+        width: 400,
+        close: function(e){
+          React.unmountAndReleaseReactRootNode(this);
+          $( this ).remove();
+        }
+      });
+      
+      var closeDialog = function(e){
+        e.preventDefault();
+        $dialog.dialog('close');
+      }
+        
+      ReactDOM.render(<DialogContent closeDialog={closeDialog} />, $dialog[0])
+    },
+    render: function(){
+      return(
+          <button onClick= {this.openDialog}>Open Dialog</button>
+      )
+    }
+  });
+  
+  ReactDOM.render(<DialogExample />, document.getElementById('component'));
+  
+  </script>
+
+</body>
+</html>
